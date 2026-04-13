@@ -1,0 +1,433 @@
+<!-- ==========================================================
+     INDEX - QUICK CUSTOMIZATION GUIDE
+     ==========================================================
+     1. COLORS
+        - Page Background    : Search for "BACKGROUND COLOR"
+        - Name Color         : Search for "NAME COLOR"
+        - Menu Text Color    : Search for "MENU TEXT COLOR"
+        - Dropdown Text Color: Search for "DROPDOWN TEXT COLOR"
+        - Entry Subtitle Color: Search for "ENTRY SUBTITLE COLOR"
+
+     2. FONTS & SIZES
+        - Font Family        : Search for "FONT FAMILY"
+        - Name Size          : Search for "NAME SIZE"
+        - Menu Text Size     : Search for "MENU TEXT SIZE"
+        - Dropdown Text Size : Search for "DROPDOWN TEXT SIZE"
+        - Entry Title Size   : Search for "ENTRY TITLE SIZE"
+
+     3. SPACING & POSITIONING
+        - Vertical Position  : Search for "VERTICAL POSITION"
+        - Left Position      : Search for "LEFT POSITION"
+        - Menu Top Spacing   : Search for "MENU TOP SPACING"
+        - Menu Gap           : Search for "MENU GAP"
+        - Dropdown Indent    : Search for "DROPDOWN INDENT"
+        - Section Spacing    : Search for "SECTION SPACING"
+
+     4. ANIMATIONS & HOVER EFFECTS
+        - Name Hover Shift   : Search for "NAME HOVER SHIFT"
+        - Menu Hover Shift   : Search for "MENU HOVER SHIFT"
+        - Transition Speed   : Search for "TRANSITION SPEED"
+
+     5. TEXT CONTENT
+        - Your Name          : Search for "YOUR NAME HERE"
+        - Menu Options       : Search for "OPTION START"
+        - Dropdown Sections  : Search for "ENTRY BLOCK START"
+        - Skill/Language Tags: Search for "TAG ITEM START"
+     ========================================================== -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Nikolas Pissas</title>
+    
+    <link rel="icon" type="image/x-icon" href="images\favicon-removebg-preview.png">
+    
+    <!-- FONT FAMILY: Change the font name here and in the URL parameters if you want a different Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- BASIC RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* --- MAIN PAGE STYLES --- */
+        body {
+            background-color: #d4d4d4; /* BACKGROUND COLOR: Change this hex code to change the page background */
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 22vh; /* VERTICAL POSITION: Increase % to move text lower, decrease to move higher */
+            font-family: "Plus Jakarta Sans", sans-serif; /* FONT FAMILY: Ensure this matches your imported Google Font */
+        }
+
+        /* --- CONTAINER STYLES --- */
+        .container {
+            padding-left: 10vw; /* LEFT POSITION: Increase % to push text more to the right, decrease to pull left */
+        }
+
+        /* --- NAME / HOME BUTTON STYLES --- */
+        .name {
+            font-size: clamp(3rem, 7vw, 6.5rem); /* NAME SIZE */
+            font-weight: 500; 
+            color: #f05e23; /* NAME COLOR: Change this hex code for a different name color */
+            cursor: pointer;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            
+            /* TRANSITION SPEED */
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), font-weight 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .name:hover {
+            transform: translateX(-6px); /* NAME HOVER SHIFT */
+            font-weight: 800; 
+        }
+
+        /* --- MENU LIST STYLES --- */
+        .menu {
+            margin-top: 1.2rem; /* MENU TOP SPACING */
+            list-style: none; 
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem; /* MENU GAP */
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- MENU LINK STYLES --- */
+        .menu a {
+            font-size: 0.85rem; /* MENU TEXT SIZE */
+            color: #000000; /* MENU TEXT COLOR */
+            text-decoration: none;
+            font-weight: 400; 
+            transition: transform 0.3s ease, font-weight 0.3s ease;
+            display: inline-block;
+            letter-spacing: 0.01em;
+            cursor: pointer;
+            user-select: none; 
+        }
+
+        .menu a:hover {
+            transform: translateX(-8px); /* MENU HOVER SHIFT */
+            font-weight: 600; 
+        }
+
+        /* --- DROPDOWN STYLES --- */
+        .dropdown {
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease, padding 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            opacity: 0; 
+            padding-left: 1.8rem; /* DROPDOWN INDENT */
+        }
+
+        .dropdown.open {
+            /* INCREASED MAX HEIGHT: Set higher (e.g., 1000px) if you add lots of text/items so it doesn't get cut off */
+            max-height: 800px; 
+            opacity: 1; 
+            padding-top: 0.4rem; 
+        }
+
+        /* --- DROPDOWN TEXT STYLES --- */
+        .dropdown p {
+            font-size: 0.78rem; /* DROPDOWN TEXT SIZE */
+            color: #444444; /* DROPDOWN TEXT COLOR */
+            line-height: 1.55; 
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+        }
+
+        /* =========================================
+           SECTION / ENTRY STYLES 
+           (Used for Work Experience, Education, Volunteering, etc.)
+           ========================================= */
+
+        .dropdown-entry {
+            margin-bottom: 1rem; /* SECTION SPACING: Space between different jobs/schools */
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between; 
+            align-items: baseline;
+            flex-wrap: wrap; 
+            gap: 0.5rem;
+        }
+
+        .entry-title {
+            font-size: 0.82rem; /* ENTRY TITLE SIZE */
+            font-weight: 600; 
+            color: #1a1a1a;
+        }
+
+        .entry-date {
+            font-size: 0.72rem;
+            color: #888888; 
+            font-weight: 400;
+        }
+
+        .entry-sub {
+            font-size: 0.75rem;
+            color: #666666; /* ENTRY SUBTITLE COLOR */
+            font-weight: 500;
+            margin-top: 0.1rem;
+            font-style: italic; 
+        }
+
+        .entry-desc {
+            margin-top: 0.25rem;
+            padding-left: 0.9rem; 
+            list-style-type: disc; 
+        }
+
+        .entry-desc li {
+            font-size: 0.75rem;
+            color: #444444; /* DROPDOWN TEXT COLOR */
+            line-height: 1.5;
+            margin-bottom: 0.2rem;
+        }
+
+        /* =========================================
+           TAG STYLES 
+           (Used for Skills, Languages, Interests)
+           ========================================= */
+
+        .tags-list {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 0.5rem;
+            margin-top: 0.3rem;
+        }
+
+        .tag-item {
+            font-size: 0.7rem;
+            color: #333333;
+            background-color: #c0c0c0; /* Soft gray background for the tags */
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px; /* Slightly rounded corners on the tags */
+            font-weight: 500;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- YOUR NAME HERE -->
+        <a href="#" class="name">Nikolas Pissas</a>
+        
+        <ul class="menu">
+            
+            <!-- OPTION START 1 -->
+            <li class="menu-item">
+                <a onclick="toggle(0)">About Me</a>
+                <div class="dropdown" id="drop-0">
+                    <p>Interested in data, business and tackling real-world problems</p>
+                </div>
+            </li>
+            <!-- OPTION END 1 -->
+
+            <!-- OPTION START 2 -->
+            <li class="menu-item">
+                <a onclick="toggle(1)">Work Experience</a>
+                <div class="dropdown" id="drop-1">
+                    
+                    <!-- ENTRY BLOCK START -->
+                    <div class="dropdown-entry">
+                        <div class="entry-header">
+                            <span class="entry-title">Accounting Assistant</span>
+                            <span class="entry-date">May 2024 – September 2025</span>
+                        </div>
+                        <div class="entry-sub">Grand Resort Lagonissi</div>
+                        <ul class="entry-desc">
+                            <li>Processed and maintained financial records, ensuring accuracy across daily transactions and reconciliations</li>
+                            <li>Analyzed revenue and expense data to identify inconsistencies and support financial decision-making</li>
+                            <li>Utilized spreadsheet tools (Excel) for data organization, reporting, and trend tracking</li>
+                            <li>Collaborated with cross-functional teams to streamline accounting workflows and improve data consistency</li>
+                            <li>Assisted in monthly financial reporting by aggregating and validating large datasets</li>
+                        </ul>
+                    </div>
+                    <!-- ENTRY BLOCK END -->
+
+                    <!-- ENTRY BLOCK START -->
+                    <div class="dropdown-entry">
+                        <div class="entry-header">
+                            <span class="entry-title">Intern</span>
+                            <span class="entry-date">June 2020 – July 2020</span>
+                        </div>
+                        <div class="entry-sub">Athenian Shipbrokers S.A</div>
+                        <ul class="entry-desc">
+                            <li>Helped out with day-to-day tasks in a shipping brokerage office and got a general understanding of how the market works</li>
+                            <li>Organized and updated basic information on vessels and cargo in internal files</li>
+                            <li>Looked up freight rates and simple market info when needed</li>
+                            <li>Got familiar with basic shipping terms and how chartering works in practice</li>
+                        </ul>
+                    </div>
+                    <!-- ENTRY BLOCK END -->
+
+                </div>
+            </li>
+            <!-- OPTION END 2 -->
+
+            <!-- OPTION START 3 -->
+            <li class="menu-item">
+                <a onclick="toggle(2)">Education</a>
+                <div class="dropdown" id="drop-2">
+                    
+                    <!-- ENTRY BLOCK START -->
+                    <div class="dropdown-entry">
+                        <div class="entry-header">
+                            <span class="entry-title">Bachelor's degree, Informatics and Computer Engineering</span>
+                            <span class="entry-date">2022 – Present</span>
+                        </div>
+                        <div class="entry-sub">University of West Attica</div>
+                        <ul class="entry-desc">
+                            <li>...</li>
+                        </ul>
+                    </div>
+                    <!-- ENTRY BLOCK END -->
+
+                    <!-- ENTRY BLOCK START -->
+                    <div class="dropdown-entry">
+                        <div class="entry-header">
+                            <span class="entry-title">High School Diploma</span>
+                            <span class="entry-date">2019 – 2022</span>
+                        </div>
+                        <div class="entry-sub">Geitonas School S.A.</div>
+                        <ul class="entry-desc">
+                            <li>Grade: 19.7/20</li>
+                            <li>Forensics club, Robotics club</li>
+                        </ul>
+                    </div>
+                    <!-- ENTRY BLOCK END -->
+
+                </div>
+            </li>
+            <!-- OPTION END 3 -->
+
+            <!-- OPTION START 4 -->
+            <li class="menu-item">
+                <a onclick="toggle(3)">Skills</a>
+                <div class="dropdown" id="drop-3">
+                    <p>Technical & Soft Skills:</p>
+                    
+                    <div class="tags-list">
+                        <!-- TAG ITEM START: Copy this line to add a new skill -->
+                        <span class="tag-item">Python</span>
+                        <span class="tag-item">SQL</span>
+                        <span class="tag-item">Data Visualization</span>
+                        <span class="tag-item">Excel</span>
+                        <span class="tag-item">Problem Solving</span>
+                        <!-- TAG ITEM END -->
+                    </div>
+
+                </div>
+            </li>
+            <!-- OPTION END 4 -->
+
+            <!-- OPTION START 5 -->
+            <li class="menu-item">
+                <a onclick="toggle(4)">Languages</a>
+                <div class="dropdown" id="drop-4">
+                    <div class="tags-list">
+                        <!-- TAG ITEM START: Copy this line to add a new language -->
+                        <span class="tag-item">Greek (Native)</span>
+                        <span class="tag-item">English (C2 Proficiency)</span>
+                        <span class="tag-item">French (B1)</span>
+                        <!-- TAG ITEM END -->
+                    </div>
+                </div>
+            </li>
+            <!-- OPTION END 5 -->
+
+            <!-- OPTION START 6 -->
+            <li class="menu-item">
+                <a onclick="toggle(5)">Volunteering</a>
+                <div class="dropdown" id="drop-5">
+                    
+                    <!-- ENTRY BLOCK START: Copy this block to add more volunteering experiences -->
+                    <div class="dropdown-entry">
+                        <div class="entry-header">
+                            <span class="entry-title">Volunteer</span>
+                            <span class="entry-date">October 2023 – Present</span>
+                        </div>
+                        <div class="entry-sub">Stavros Niarchos Foundation Cultural Center (SNFCC)</div>
+                        <ul class="entry-desc">
+                            <li>Supported events and assisted with basic coordination tasks</li>
+                            <li>Worked as part of a team and handled day-to-day responsibilities</li>
+                        </ul>
+                    </div>
+                    <!-- ENTRY BLOCK END -->
+
+                    <!-- ENTRY BLOCK START: Copy this block to add more volunteering experiences -->
+                    <div class="dropdown-entry">
+                        <div class="entry-header">
+                            <span class="entry-title">Volunteer</span>
+                            <span class="entry-date">March 2023</span>
+                        </div>
+                        <div class="entry-sub">TEDxAUEB</div>
+                        <ul class="entry-desc">
+                        </ul>
+                    </div>
+                    <!-- ENTRY BLOCK END -->
+
+                </div>
+            </li>
+            <!-- OPTION END 6 -->
+
+            <!--
+            <li class="menu-item">
+                <a onclick="toggle(6)">Personal Interests</a>
+                <div class="dropdown" id="drop-6">
+                    <p>A few things I enjoy outside of work and studies:</p>
+                    <div class="tags-list">
+                        
+                        <span class="tag-item">Interest One</span>
+                        <span class="tag-item">Interest Two</span>
+                        <span class="tag-item">Interest Three</span>
+                        
+                    </div>
+                </div>
+            </li>
+            -->
+    
+        </ul>
+    </div>
+
+    <script>
+        // Keeps track of which dropdown is currently open (-1 means none are open)
+        let openIndex = -1;
+
+        // Function called when a menu option is clicked
+        function toggle(index) {
+            // Grabs all elements on the page with the class 'dropdown'
+            const all = document.querySelectorAll('.dropdown');
+
+            // If the user clicks the option that is ALREADY open...
+            if (openIndex === index) {
+                all[index].classList.remove('open'); // Close it
+                openIndex = -1; // Reset tracker to none
+            } 
+            // If the user clicks a DIFFERENT option...
+            else {
+                all.forEach(d => d.classList.remove('open')); // Close all dropdowns first
+                all[index].classList.add('open'); // Open the newly clicked one
+                openIndex = index; // Update tracker to the new one
+            }
+        }
+    </script>
+</body>
+</html>
