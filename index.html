@@ -221,6 +221,42 @@
             font-weight: 500;
         }
 
+        /* =========================================
+           NEW: CONTACT BAR STYLES 
+           ========================================= */
+        
+        /* Container for the bottom-right icons */
+        .contact-bar {
+            position: fixed; /* Stays in place when you scroll */
+            bottom: 2rem; /* CONTACT BAR POSITION: Distance from the bottom of the screen */
+            right: 2.5rem; /* CONTACT BAR POSITION: Distance from the right side of the screen */
+            display: flex;
+            gap: 1.2rem; /* Space between the two icons */
+            z-index: 100; /* Ensures it stays above other page content */
+        }
+
+        /* Individual icon link styling */
+        .contact-icon {
+            color: #888888; /* CONTACT ICONS COLOR: Muted gray so it's discreet */
+            transition: color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Hover effect for the icons (turns them the same orange as your name) */
+        .contact-icon:hover {
+            color: #f05e23; 
+            transform: translateY(-2px); /* Slight upward float on hover */
+        }
+
+        /* Sets the size of the SVG icons */
+        .contact-icon svg {
+            width: 20px; 
+            height: 20px; 
+            fill: currentColor; /* Inherits the color from the .contact-icon class */
+        }
+
     </style>
 </head>
 <body>
